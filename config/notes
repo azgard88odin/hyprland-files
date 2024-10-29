@@ -1,0 +1,68 @@
+# to set the keymap for the GUI
+localectl set-keymap dvorak
+# to set the keymap for the console
+vim /etc/vconsole.conf
+KEYMAP=dvorak
+
+# install man pages
+sudo pacman -S man-pages man-db
+
+# remove the keyboard on the waybar
+vim ~/.config/waybar/config.jsonc
+remove the hyprland language
+# remove the weather from the v4 bottom bar
+vim ~/.config/HyprV/waybar/v4-config-bottom.jsonc
+comment out the "modules-right": ["custom/weather"] line
+move the line outside of the object
+
+# configure Alt+Tab like function
+vim ~/.config/hypr/hyprland.conf
+bind = ALT, Tab, cyclenext, prev
+
+# install dbeaver && stop render issue
+sudo pacman -S dbeaver jdk17-openjdk
+# add 'export GTK_IM_MODULE=ibus' in cd ~/.profile
+# change to classic theme
+# alter your colors in the fonts and colors section of the settings
+
+# install wireguard
+sudo pacman -S wireguard-tools resolved
+sudo systemctl enable systemd-resolved
+sudo systemctl start systemd-resolved
+sudo wg-quick up wg-sva    # connect with client
+sudo wg-quick down wg-sva  # disconnect with client
+
+# install android-studio
+git clone https://aur.archlinux.org/android-studio.git
+makepkg -si
+
+# install sublime text 4
+git clone https://aur.archlinux.org/sublime-text-4.git
+makepkg -si
+
+# install whatsapp
+git clone https://aur.archlinux.org/whatsapp-for-linux.git
+makepkg -si
+
+# install outlook (new outlook interface)
+yay -S prospect-mail-beta-bin
+
+# install nmap
+sudo pacman -S nmap
+
+# install ufw
+sudo pacman -S ufw
+
+# install swww for wallpaper changes
+sudo pacman -S swww
+
+# install pywal
+sudo pacman -S python-pywal
+
+# import colors-kitty into the kitty.conf file
+
+# change wallpaper and colorscheme with pywal
+swww img /path/to/img && wal -i /path/to/img
+
+# install pywalfox
+yay -S python-pywalfox
